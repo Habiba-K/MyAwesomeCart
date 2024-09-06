@@ -1,0 +1,61 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} {{product.Mobile_name}} - Online MobileShop{% endblock %}
+
+{% block body %}
+ <div class="container my-5">
+     <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                
+                <img src="/media/{{product.image}}" padding-top= "10%" width="245px" height="360px">
+                
+            </div>
+               
+        </div>
+        <div class="col-md-8">
+          <h2 style="padding-bottom: 3%;"><b>{{product.Mobile_name}}</b></h2>
+          <p><b>Memory: </b> {{product.Memory}}</p>
+          <p><b>Processor: </b> {{product.Processor}}</p>
+          <p><b>Camera: </b> {{product.Camera}}</p>
+          <p><b>Messaging: </b> {{product.Messaging}}</p>
+          <p><b>Messaging: </b> {{product.Messaging}}</p>
+          <p><b>Other_features: </b> {{product.Other_features}}</p>
+          <p><b>Price:  </b><b>Rs {{product.price}}</b></p>
+        </div>
+    </div>
+</div> 
+ 
+{% endblock %}
+{% block js %}
+<script>
+    console.log('working');
+    if(localStorage.getItem('cart')== null)
+    {
+      var cart ={};
+    }
+    else
+    {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      document.getElementById('cart').innerHTML=Object.keys(cart).length;
+    }
+   $('.cart').click(function(){
+   console.log('clicked'); 
+   var idstr=this.id.toString();
+   console.log(idstr);
+   if (cart[idstr]!=undefined){
+     cart[idstr]= cart[idstr]+1;
+   }
+   else
+   {
+     cart[idstr]=1;
+   }
+   console.log(cart);
+   localStorage.setItem('cart',JSON.stringify(cart));
+   document.getElementById('cart').innerHTML=Object.keys(cart).length;
+   });
+   $('#popcart').popover();
+   document.getElementById("popcart").setAttribute('data-content','<h5>Cart for your items in myshopping cart</h5>');
+  </script>
+  {% endblock %}
+

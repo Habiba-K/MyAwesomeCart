@@ -1,0 +1,29 @@
+{% extends 'blog/basic.html' %}
+
+{% block title %} {{product.Mobile_name}} - Online Mobile Shop {% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <div class="row">
+       <div class="col-md-4">
+           <div class="row">
+               <img src="/media/{{product.image}}" padding-top= "10%" width="245px" height="360px">
+               
+           </div>
+       </div>
+       <div class="col-md-8" >
+
+        <h2 style="padding-bottom: 3%;"><b>{{product.Mobile_name}}</b></h2>
+        <p><b>Memory: </b> {{product.Memory}}</p>
+        <p><b>Processor: </b> {{product.Processor}}</p>
+        <p><b>Camera: </b> {{product.Camera}}</p>
+        <p><b>Messaging: </b> {{product.Messaging}}</p>
+        <p><b>Messaging: </b> {{product.Messaging}}</p>
+        <p><b>Other_features: </b> {{product.Other_features}}</p>
+        <p><b>Price:  </b><b>Rs {{product.price}}</b></p>
+       </div>
+   </div>
+</div> 
+
+{% endblock %}
